@@ -39,7 +39,11 @@ func split(sum int)(x,y int){
 	return 
 }
 
+// Functions as values
 
+func wrapper(fn func(int,int) int) int {
+	return fn(21,31)
+}
 func main(){
 	fmt.Println(add(5,6))
 
@@ -51,4 +55,10 @@ func main(){
 	fmt.Println(a,b)
 
 	fmt.Println(split(17))
+
+
+	fmt.Println("Wrapper function: Passed add() as an argument")
+	fmt.Println(wrapper(add))
+
+	fmt.Println(wrapper(sub))
 }
